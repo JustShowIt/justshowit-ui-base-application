@@ -10,7 +10,7 @@ export default {
   props: {
     value: {
       type: String,
-      default: 'http://localhost:9000/test'
+      default: 'http://localhost:9001/test'
     },
     placeholder: {
       type: String,
