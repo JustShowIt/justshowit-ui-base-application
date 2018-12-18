@@ -6,7 +6,7 @@
 import JustShowMe from '@/components/JustShowMe.vue'
 
 export default {
-  name: 'home',
+  name: 'JustShowMeAddressInput',
   components: {
     JustShowMe
   }

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import JustShowMe from './views/JustShowMe.vue'
+import JustShowMeAddressInput from './views/JustShowMeAddressInput.vue'
 
 Vue.use(Router)
 
@@ -11,8 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'justshowme',
-      component: JustShowMe
+      name: 'JustShowMeAddressInput',
+      component: JustShowMeAddressInput
     }
   ]
 })
