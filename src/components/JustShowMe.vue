@@ -52,7 +52,7 @@ export default {
     
     .justshowme-address-input {
       border: 0;
-      background: rgba(255,255,255,.1);
+      background: rgba(67, 40, 19,.3);
       padding: 0 1em;
       height: 3em;
       color: #e8c5a1;
@@ -63,12 +63,12 @@ export default {
     
       &:hover {
         color: #dad3cb;
-        box-shadow: inset 0 0 .5em #dad3cb;
+        box-shadow: inset 0 0 0.1em 0.1em #bb9b69;
       }
 
       &:focus,
       &:active {
-        background: rgba(255,255,255, .5);
+        background: rgb(218, 197, 173);
         color: #51331a;
       }
 
