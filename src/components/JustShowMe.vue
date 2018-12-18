@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'JustShowMe',
   props: {
@@ -18,8 +20,13 @@ export default {
     }
   },
   methods: {
-    submit (address) {
-      console.log(address);
+    async submit (address) {
+      try {
+        const response = await axios.get(address)
+        console.log(response.data)
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }
