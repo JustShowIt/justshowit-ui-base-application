@@ -4,6 +4,47 @@
   </div>
 </template>
 
+<script>
+import axios from 'axios'
+import { justshowme } from '../package.json'
+
+export default {
+  mounted () {
+
+    let params = window.location.search.substr(1).split('&')
+    let address = null
+
+    if (params.length && params[0] !== '') {
+
+      address = params.filter(param => {
+        return param.search('justshowme=') !== -1
+      }).map(param => {
+        return decodeURIComponent(param);
+      })[0]
+
+      if (address) {
+        address = address.split('=')[1]
+      }
+
+    }
+    
+    if (address) {
+      try {
+        console.log('Initial service request:', justshowme.gateway + justshowme.dataPath)
+        axios.get(justshowme.gateway + justshowme.dataPath, {
+          headers: {
+            'justshowme-service-request-uri': address
+          }
+        })
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+  }
+}
+</script>
+
 <style lang="scss">
   * { 
     box-sizing: border-box; 
