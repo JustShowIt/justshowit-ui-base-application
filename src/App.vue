@@ -1,18 +1,88 @@
 <template>
   <div id="justshowme">
     <router-view/>
+    <component v-for="unit in initialUnits" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit">
+      {{ unit.id }} - {{ unit.type }}
+    </component>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import axios from 'axios'
 import { justshowme } from '../package.json'
 
 export default {
   data () {
     return  {
-      initialServiceData: null
+      initialUnits: [
+        {
+          "id": 10,
+          "type": "text"
+        },
+        {
+          "id": 20,
+          "type": "text"
+        },
+        {
+          "id": 30,
+          "type": "unit",
+          "units": [
+            {
+              "id": 40,
+              "type": "text"
+            },
+            {
+              "id": 50,
+              "type": "unit",
+              "units": [
+                {
+                  "id": 60,
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "id": 70,
+              "type": "text"
+            },
+            {
+              "id": 80,
+              "options": {
+                "titel": "Lustiges Video",
+                "description": "Ein cooles lustiges Video mit einem Hasen.",
+                "path": "https://www.w3schools.com/html/mov_bbb.mp4",
+                "resolution": "320x240",
+                "runtime": "10.26s",
+                "size": "131.509.108",
+                "author": "Mario Linz",
+                "intelligentSearchDepth": 5
+              }
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "type": "text"
+        }
+      ]
     }
+  },
+  methods: {
+
+    getComponentTypeByUnit (unit) {
+      return unit.type ? 'justshowme-' + unit.type : 'justshowme-text'
+    }
+
+  },
+  created () {
+
+    const req = require.context('./components/', true, /\.(js|vue)$/i);
+    req.keys().map(key => {
+      //const name = key.match(/\w+/)[0]
+      return Vue.component(req(key).default.name, req(key).default)
+    })
+
   },
   mounted () {
 
@@ -44,7 +114,7 @@ export default {
             'justshowme-service-request-uri': address
           }
         }).then(json => {
-          this.initialServiceData = json
+          this.initialUnits = json
         })
       } catch (e) {
         console.error(e)
@@ -70,7 +140,7 @@ export default {
     background: #111;
     background-image: url(http://www.laboratoriocondemorales.com/app/lib/frm/img/admin/background.jpg);
     background-size: cover;
-    color: #999;
+    color: #e8c5a1;
     display: flex;
     justify-content: center;
     align-items: center;
