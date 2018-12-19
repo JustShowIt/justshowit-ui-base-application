@@ -9,6 +9,11 @@ import axios from 'axios'
 import { justshowme } from '../package.json'
 
 export default {
+  data () {
+    return  {
+      initialServiceData: null
+    }
+  },
   mounted () {
 
     let params = window.location.search.substr(1).split('&')
@@ -30,11 +35,13 @@ export default {
     
     if (address) {
       try {
-        console.log('Initial service request:', justshowme.gateway + justshowme.dataPath)
+        console.log('Initial service request to', justshowme.gateway + justshowme.dataPath)
         axios.get(justshowme.gateway + justshowme.dataPath, {
           headers: {
             'justshowme-service-request-uri': address
           }
+        }).then(json => {
+          this.initialServiceData = json
         })
       } catch (e) {
         console.error(e)
