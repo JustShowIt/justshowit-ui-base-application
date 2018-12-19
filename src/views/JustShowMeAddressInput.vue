@@ -1,14 +1,14 @@
 <template>
-  <JustShowMe />
+  <Search />
 </template>
 
 <script>
-import JustShowMe from '@/components/JustShowMe.vue'
+import Search from '@/components/Search.vue'
 
 export default {
   name: 'JustShowMeAddressInput',
   components: {
-    JustShowMe
+    Search
   }
 }
 </script>

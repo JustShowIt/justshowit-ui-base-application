@@ -1,6 +1,6 @@
 <template>
-  <div class="justshowme">
-    <input class="justshowme-address-input" type="text" :value="value" :placeholder="placeholder" @keyup.enter="submit(value)" />
+  <div class="search">
+    <input class="search-address-input" type="text" :value="value" :placeholder="placeholder" @keyup.enter="submit(value)" />
   </div>
 </template>
 
@@ -9,7 +9,7 @@ import axios from 'axios'
 import { justshowme } from '../../package.json'
 
 export default {
-  name: 'JustShowMe',
+  name: 'Search',
   props: {
     value: {
       type: String,
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .justshowme {
+  .search {
     background: rgba(0,0,0,.25);
     padding: .3em;
     overflow: hidden;
@@ -50,7 +50,7 @@ export default {
     justify-content: space-around;
     align-items: center;
     
-    .justshowme-address-input {
+    .search-address-input {
       border: 0;
       background: rgba(67, 40, 19,.3);
       padding: 0 1em;
@@ -74,30 +74,4 @@ export default {
 
     }
   }
-  /*
-  .justshowme {
-    position: fixed;
-    width: 100%;
-    height: 50px;
-    background: rgba(0,0,0,.5);
-    padding: 1em;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    .justshowme-address-input {
-      border: 0;
-      background: rgba(255,255,255, 0.1);
-      padding: 0 1em;
-      height: 3em;
-      color: #777;
-      outline: none;
-
-      &:focus {
-        background: rgba(255,255,255, 0.25);
-        color: #ccc;
-      }
-    }
-  }
-  */
 </style>
