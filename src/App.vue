@@ -35,8 +35,11 @@ export default {
     
     if (address) {
       try {
-        console.log('Initial service request to', justshowme.gateway + justshowme.dataPath)
-        axios.get(justshowme.gateway + justshowme.dataPath, {
+        const url = justshowme.gateway + justshowme.dataPath;
+
+        console.log('Initial service request detected to', address)
+        
+        axios.get(url, {
           headers: {
             'justshowme-service-request-uri': address
           }
