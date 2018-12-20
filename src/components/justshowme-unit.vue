@@ -1,9 +1,7 @@
 <template>
   <div class="justshowme-unit">
     <slot></slot>
-    <component v-for="unit in unit.units" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit">
-      {{ unit.id }} - {{ unit.type }}
-    </component>
+    <component v-for="unit in unit.units" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" />
   </div>
 </template>
 

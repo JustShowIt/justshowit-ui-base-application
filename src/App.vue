@@ -1,9 +1,7 @@
 <template>
   <div id="justshowme">
     <router-view/>
-    <component v-for="unit in initialUnits" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit">
-      {{ unit.id }} - {{ unit.type }}
-    </component>
+    <component v-for="unit in initialUnits" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" />
   </div>
 </template>
 

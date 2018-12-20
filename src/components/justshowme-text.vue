@@ -1,9 +1,12 @@
 <template>
   <div class="justshowme-text">
     <slot></slot>
-    <component v-for="unit in unit.units" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit">
-      {{ unit.id }} - {{ unit.type }}
-    </component>
+
+    <div v-for="(text, index) in formattedContent" :key="index">
+      {{text}}
+    </div>
+
+    <component v-for="unit in unit.units" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" />
   </div>
 </template>
 
@@ -12,6 +15,18 @@ export default {
   name: 'justshowme-text',
   props: {
     unit: Object
+  },
+  computed: {
+    formattedContent () {
+      let formattedContent = []
+      
+      Object.keys(this.unit).forEach((option) => {
+        console.log(option)
+        formattedContent.push(this.unit[option])
+      });
+
+      return formattedContent
+    }
   },
   methods: {
     getComponentTypeByUnit (unit) {
@@ -23,6 +38,6 @@ export default {
 
 <style scoped lang="scss">
   .justshowme-text {
-    color: #fff;
+    color: #e8c5a1;
   }
 </style>
