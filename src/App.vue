@@ -139,12 +139,15 @@ export default {
     background-image: url(http://www.laboratoriocondemorales.com/app/lib/frm/img/admin/background.jpg);
     background-size: cover;
     color: #e8c5a1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
   }
 
   #justshowme {
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 1em;
   }
 </style>

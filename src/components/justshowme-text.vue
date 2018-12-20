@@ -18,13 +18,10 @@ export default {
   },
   computed: {
     formattedContent () {
-      let formattedContent = []
-      
+      let formattedContent = []      
       Object.keys(this.unit).forEach((option) => {
-        console.log(option)
         formattedContent.push(this.unit[option])
       });
-
       return formattedContent
     }
   },
