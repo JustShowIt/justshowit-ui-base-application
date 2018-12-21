@@ -1,7 +1,8 @@
 <template>
-  <div class="justshowme-unit">
-    <component v-for="unit in unit.units" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" />
-  </div>
+  <component v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" class="justshowme-unit">
+    <!--<component v-for="unit in initialUnits" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" />-->
+    <justshowme v-for="unit in unit.units" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" />
+  </component>
 </template>
 
 <script>
