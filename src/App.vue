@@ -14,7 +14,7 @@ import { justshowme } from '../package.json'
 export default {
   data () {
     return  {
-      initialUnits: [
+      /*initialUnits: [
         {
           "id": 10,
           "type": "text"
@@ -64,7 +64,8 @@ export default {
           "id": 90,
           "type": "text"
         }
-      ]
+      ],*/
+      initialUnits: []
     }
   },
   methods: {
