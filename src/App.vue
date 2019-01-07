@@ -1,8 +1,7 @@
 <template>
   <div id="justshowme">
     <router-view/>
-    <!--<component v-for="unit in initialUnits" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" />-->
-    <justshowme v-for="unit in initialUnits" :key="unit.id" v-bind:is="getComponentTypeByUnit(unit)" :unit="unit" />
+    <justshowme :unit="unit" />
   </div>
 </template>
 
@@ -10,70 +9,16 @@
 import Vue from 'vue'
 import axios from 'axios'
 import { justshowme } from '../package.json'
+import justshowmeComponentMixin from '@/components/mixins/justshowmeComponentMixin'
+
+import mockData from '@/mock/mockData'
 
 export default {
+  mixins: [ justshowmeComponentMixin ],
   data () {
     return  {
-      /*initialUnits: [
-        {
-          "id": 10,
-          "type": "text"
-        },
-        {
-          "id": 20,
-          "type": "text"
-        },
-        {
-          "id": 30,
-          "type": "unit",
-          "units": [
-            {
-              "id": 40,
-              "type": "text"
-            },
-            {
-              "id": 50,
-              "type": "unit",
-              "units": [
-                {
-                  "id": 60,
-                  "type": "text"
-                }
-              ]
-            },
-            {
-              "id": 70,
-              "type": "text"
-            },
-            {
-              "id": 80,
-              "options": {
-                "titel": "Lustiges Video",
-                "description": "Ein cooles lustiges Video mit einem Hasen.",
-                "path": "https://www.w3schools.com/html/mov_bbb.mp4",
-                "resolution": "320x240",
-                "runtime": "10.26s",
-                "size": "131.509.108",
-                "author": "Mario Linz",
-                "intelligentSearchDepth": 5
-              }
-            }
-          ]
-        },
-        {
-          "id": 90,
-          "type": "text"
-        }
-      ],*/
-      initialUnits: []
+      unit: mockData.mock1
     }
-  },
-  methods: {
-
-    getComponentTypeByUnit (unit) {
-      return unit.type ? 'justshowme-' + unit.type : 'justshowme-text'
-    }
-
   },
   created () {
 
@@ -106,9 +51,6 @@ export default {
     if (address) {
       try {
         const url = justshowme.gateway + justshowme.dataPath;
-
-        console.log('Initial service request detected to', address)
-        
         axios.get(url, {
           headers: {
             'justshowme-service-request-uri': address
