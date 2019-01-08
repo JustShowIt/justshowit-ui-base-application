@@ -1,4 +1,10 @@
 export default {
+    props: {
+        unit: {
+            type: Object,
+            required: true
+        }
+    },
     methods: {
         getComponentType () {
             const prefix = 'justshowme'

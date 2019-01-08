@@ -9,12 +9,9 @@
 import Vue from 'vue'
 import axios from 'axios'
 import { justshowme } from '../package.json'
-import justshowmeComponentMixin from '@/components/mixins/justshowmeComponentMixin'
-
 import mockData from '@/mock/mockData'
 
 export default {
-  mixins: [ justshowmeComponentMixin ],
   data () {
     return  {
       unit: mockData.mock1
@@ -56,7 +53,7 @@ export default {
             'justshowme-service-request-uri': address
           }
         }).then(json => {
-          this.initialUnits = json
+          this.unit = json
         })
       } catch (e) {
         console.error(e)

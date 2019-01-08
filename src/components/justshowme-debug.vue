@@ -6,14 +6,11 @@
 </template>
 
 <script>
-import justshowmeComponentMixin from '@/components/mixins/justshowmeComponentMixin'
+import justshowmeComponentMixin from '@/mixins/justshowmeComponentMixin'
 
 export default {
   mixins: [ justshowmeComponentMixin ],
   name: 'justshowme-debug',
-  props: {
-    unit: Object
-  },
   computed: {
     formattedContent () {
       let formattedContent = []      
