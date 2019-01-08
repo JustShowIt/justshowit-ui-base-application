@@ -42,6 +42,7 @@ export default {
   .search {
     background: rgba(0,0,0,.25);
     padding: .3em;
+    margin-bottom: 1em;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,.2);
     box-shadow: 0 0 1em 0 rgba(0,0,0,.5);

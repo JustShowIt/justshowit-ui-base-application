@@ -1,9 +1,32 @@
+const faker = require('faker');
+
+const componentTypes = ['text','unit']
+const maxCount = faker.random.number({ 'min': 5, 'max': 10 });
+const maxLevel = faker.random.number({ 'min': 2, 'max': 3 });
+
+const randomUnit = (count, level) => {
+    const units = []
+
+    if (level > 1) {
+        for (let i=0; i < count; i++) {
+            units.push({
+                "id": faker.random.uuid(),
+                "type": componentTypes[faker.random.number({ 'min': 0, 'max': componentTypes.length-1 })],
+                "options": {
+                    "text": faker.lorem.sentences()
+                },
+                "units": randomUnit(count, (level-1))
+            })
+        }
+    }
+
+    return units
+}
+
 const mock1 = {
     "id": "1",
-    "type": "text",
-    "options": {
-        "text": "Die sist ein kleiner Text."
-    }
+    "type": "unit",
+    "units": randomUnit(maxCount, maxLevel)
 }
 
 const mock2 = {

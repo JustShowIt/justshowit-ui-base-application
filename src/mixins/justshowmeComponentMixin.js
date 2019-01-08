@@ -16,8 +16,5 @@ export default {
         hasUnits () {
           return (this.unit.hasUnits)
         }
-    },
-    mounted () {
-      console.log(JSON.stringify(this.unit))
     }
 }
