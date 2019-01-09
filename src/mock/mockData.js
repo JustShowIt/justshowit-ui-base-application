@@ -1,26 +1,47 @@
 const faker = require('faker');
 
-const componentTypes = ['text','unit']
+const componentTypes = ['text','unit','list']
 const maxCount = faker.random.number({ 'min': 5, 'max': 10 });
 const maxLevel = faker.random.number({ 'min': 2, 'max': 3 });
 
+const randomOptionsByType = (type) => {
+    if (type === 'unit') {
+        return {}
+    }
+
+    if (type === 'text') {
+        return {
+            "text": faker.lorem.sentences()
+        }
+    }
+
+    if (type === 'list') {
+        return {}
+    }
+}
+
 const randomUnit = (count, level) => {
     const units = []
+    const type = componentTypes[faker.random.number({ 'min': 0, 'max': componentTypes.length-1 })];
 
     if (level > 1) {
         for (let i=0; i < count; i++) {
             units.push({
                 "id": faker.random.uuid(),
-                "type": componentTypes[faker.random.number({ 'min': 0, 'max': componentTypes.length-1 })],
-                "options": {
-                    "text": faker.lorem.sentences()
-                },
+                "type": type,
+                "options": randomOptionsByType(type),
                 "units": randomUnit(count, (level-1))
             })
         }
     }
 
     return units
+}
+
+const dynamicMock = {
+    "id": "1",
+    "type": "unit",
+    "units": randomUnit(maxCount, maxLevel)
 }
 
 const mock1 = {
@@ -84,6 +105,7 @@ const mock2 = {
 }
 
 export default {
+    dynamicMock,
     mock1,
     mock2
 };

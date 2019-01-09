@@ -14,7 +14,7 @@ import mockData from '@/mock/mockData'
 export default {
   data () {
     return  {
-      unit: mockData.mock1
+      unit: mockData.dynamicMock
     }
   },
   created () {
