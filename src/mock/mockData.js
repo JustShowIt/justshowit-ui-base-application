@@ -104,7 +104,7 @@ const mock2 = {
     ]
 }
 
-export default {
+export {
     dynamicMock,
     mock1,
     mock2

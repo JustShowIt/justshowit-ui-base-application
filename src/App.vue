@@ -1,7 +1,7 @@
 <template>
   <div id="justshowme">
     <router-view/>
-    <justshowme :unit="unit" />
+    <justshowme :unit="unit" v-if="unit" />
   </div>
 </template>
 
@@ -9,12 +9,12 @@
 import Vue from 'vue'
 import axios from 'axios'
 import { justshowme } from '../package.json'
-import mockData from '@/mock/mockData'
+// import { dynamicMock } from '@/mock/mockData'
 
 export default {
   data () {
     return  {
-      unit: mockData.dynamicMock
+      unit: null
     }
   },
   created () {
@@ -47,7 +47,7 @@ export default {
     
     if (address) {
       try {
-        const url = justshowme.gateway + justshowme.dataPath;
+        const url = justshowme.gateway + justshowme.dataPath
         axios.get(url, {
           headers: {
             'justshowme-service-request-uri': address
@@ -56,7 +56,7 @@ export default {
           this.unit = json
         })
       } catch (e) {
-        console.error(e)
+        throw new Error(e)
       }
     }
 
