@@ -1,6 +1,7 @@
 <template>
   <div id="justshowme">
-    <router-view/>
+    <!--<router-view/>-->
+    <Search v-on:request="update" />
     <justshowme :unit="unit" v-if="unit" />
   </div>
 </template>
@@ -60,6 +61,11 @@ export default {
       }
     }
 
+  },
+  methods: {
+    update(data) {
+      this.unit = data;
+    }
   }
 }
 </script>
@@ -85,7 +91,7 @@ export default {
 
   #justshowme {
     position: absolute;
-    top: 0;
+    top: 3.5rem;
     left: 0;
     right: 0;
     bottom: 0;

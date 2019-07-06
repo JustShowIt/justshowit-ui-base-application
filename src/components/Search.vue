@@ -23,15 +23,15 @@ export default {
   methods: {
 
     async submit (address) {
-      try {
-        await axios.get(justshowme.gateway + justshowme.dataPath, {
-          headers: {
-            'justshowme-service-request-uri': address
-          }
-        })
-      } catch (e) {
-        console.error(e)
-      }
+      await axios.get(justshowme.gateway + justshowme.dataPath, {
+        headers: {
+          'justshowme-service-request-uri': address,
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Access-Control-Allow-Origin': '*'
+        }
+      }).then(response => {
+        this.$emit('request', response.data);
+      })
     }
 
   }
@@ -50,6 +50,10 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     
     .search-address-input {
       border: 0;

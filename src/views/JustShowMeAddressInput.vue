@@ -1,5 +1,5 @@
 <template>
-  <Search />
+  <Search v-on:request="update" />
 </template>
 
 <script>
