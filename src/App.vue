@@ -64,7 +64,8 @@ export default {
   },
   methods: {
     update(data) {
-      this.unit = data;
+      console.log(data)
+      this.unit = data
     }
   }
 }
