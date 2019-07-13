@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.08623ee43720283649aa019572c1d942.js"
+  "/precache-manifest.3c4a2b7e2fb71456acdec4eb65f0d6cf.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "justshowit-ui-base-application"});

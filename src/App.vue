@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     update(data) {
-      console.log(data)
+      console.info(data)
       this.unit = data
     }
   }
@@ -79,8 +79,9 @@ export default {
   }
   html, 
   body { 
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
   }
   body {
     background: #111;
@@ -97,5 +98,15 @@ export default {
     right: 0;
     bottom: 0;
     margin: 1em;
+
+    [class^="justshowme-"] {
+      border: 1px solid rgba(0,0,0,.5);
+      padding: .5em;
+      margin: .5em;
+    }
+  }
+
+  .hide {
+    display: none;
   }
 </style>

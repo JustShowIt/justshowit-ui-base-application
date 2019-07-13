@@ -13,6 +13,9 @@ export default {
         getOptions () {
             return this.unit.options ? this.unit.options : {}
         },
+        hasOptions () {
+            return this.getOptions().length ? true : false
+        },
         hasUnits () {
           return (this.unit.hasUnits)
         }
