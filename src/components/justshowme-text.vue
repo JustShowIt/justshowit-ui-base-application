@@ -1,6 +1,6 @@
 <template>
-  <div class="justshowme-text" v-bind:class="{ hide: this.hasOptions() }">
-    {{getOptions().text}}
+  <div class="justshowme-text" v-bind:class="{ hide: this.hasParams() }">
+    {{getParams().text}}
     <justshowme v-for="childUnit in unit.units" :key="childUnit.id" :unit="childUnit" />
   </div>
 </template>

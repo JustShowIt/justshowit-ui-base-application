@@ -10,11 +10,11 @@ export default {
             const prefix = 'justshowme'
             return this.unit && this.unit.type ? `${prefix}-${this.unit.type.toLowerCase()}` : `${prefix}-debug`
         },
-        getOptions () {
-            return this.unit.options ? this.unit.options : {}
+        getParams () {
+            return this.unit.params ? this.unit.params : {}
         },
-        hasOptions () {
-            return this.getOptions().length ? true : false
+        hasParams () {
+            return this.getParams().length ? true : false
         },
         hasUnits () {
           return (this.unit.hasUnits)

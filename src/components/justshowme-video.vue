@@ -1,8 +1,8 @@
 <template>
   <div class="justshowme-video">
     <video controls>
-      <source :src="this.getOptions().url" type="video/mp4"> 
-      <a :href="this.getOptions().url" v-html="this.getOptions().url"></a>
+      <source :src="this.getParams().url" type="video/mp4"> 
+      <a :href="this.getParams().url" v-html="this.getParams().url"></a>
     </video>
     <justshowme v-for="childUnit in unit.units" :key="childUnit.id" :unit="childUnit" />
   </div>
